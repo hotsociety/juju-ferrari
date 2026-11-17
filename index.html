@@ -949,7 +949,9 @@ var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout
 if (!reduce && store.get('jf-intro') !== '1') {
   d.body.classList.add('intro');
   store.set('jf-intro', '1');
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ d.body.classList.add('ready'); d.body.classList.remove('intro'); }); });
+  var go = function(){ if (d.body.classList.contains('ready')) return; d.body.classList.add('ready'); d.body.classList.remove('intro'); };
+  requestAnimationFrame(function(){ requestAnimationFrame(go); });
+  setTimeout(go, 60);
 }
 
 /* brilho: a luz do nome acompanha o ponteiro; no celular, acompanha a rolagem */
