@@ -66,7 +66,7 @@ window.JUJU = {
     { name: 'Fatal Fans', icon: 'lock', cta: 'Assinar', ctaFull: 'Assinar no Fatal Fans', text: 'Conteúdo exclusivo', url: 'https://fatalfans.com/jujuferrari?coupon=PRIMEIRAASSINATURAFF50', adult: true, featured: true, coupon: 'PRIMEIRAASSINATURAFF50' },
     { name: 'Privacy', icon: 'lock', cta: 'Assinar', ctaFull: 'Assinar no Privacy', text: 'Conteúdo exclusivo', url: 'https://privacy.com.br/checkout/Juujuferrari', adult: true },
     { name: 'Prévias', icon: 'tg', cta: 'Entrar', ctaFull: 'Entrar nas Prévias', text: 'Canal de prévias no Telegram', url: 'https://t.me/+TF0w6qMFbLIzZmVh', adult: true },
-    { name: 'Criadora Pro', icon: 'star', cta: 'Conhecer', text: 'O curso para quem quer começar como criadora de conteúdo', url: '' },
+    { name: 'Criadora', icon: 'star', cta: 'Conhecer', text: 'O ecossistema de formação da Juju: Pro, Elite e Black', url: '#criadora' },
     { name: 'Instagram', icon: 'ig', cta: 'Seguir', text: '@juujuferrari', url: 'https://www.instagram.com/juujuferrari/' },
     { name: 'TikTok', icon: 'tt', cta: 'Seguir', text: '@jujuferrariof', url: 'https://www.tiktok.com/@jujuferrariof' }
   ],
@@ -133,6 +133,28 @@ window.JUJU = {
     email: '',
     kitUrl: '',                           // link do kit de imprensa (PDF ou pasta)
     appearances: []                       // [{ outlet: 'Programa X', title: 'Entrevista', date: '2026', url: '' }]
+  },
+
+  /* ECOSSISTEMA CRIADORA ---------------------------------------------------
+     url: link de checkout ou da página de cada nível (Hubla). Vazio = o botão
+     abre o direct da Juju no Instagram (contactUrl). Nada de preço ou promessa
+     inventada: só o que já existe na área de membros. */
+  criadora: {
+    intro: 'O ecossistema de formação da Juju para quem quer criar conteúdo e modelos com inteligência artificial, com método e estrutura. Três níveis, um único caminho: você entra no nível do seu momento e evolui dentro do mesmo ecossistema.',
+    contactUrl: 'https://ig.me/m/juujuferrari',
+    contactLabel: 'Falar com a Juju no direct',
+    note: 'Os resultados dependem de dedicação, aplicação e do contexto de cada pessoa. Não prometemos ganhos.',
+    levels: [
+      { tier: 'Nível 01', name: 'Criadora Pro', tag: 'Fundamentos', color: '#EE278E', forWho: 'Para quem está começando do zero.',
+        items: ['Como construir sua audiência', 'Como definir seu nicho', 'Como vender pelas redes sociais', 'Como construir uma imagem clara', 'Como manter sua plataforma ativa'],
+        url: '', cta: 'Começar pelo Pro' },
+      { tier: 'Nível 02', name: 'Criadora Elite', tag: 'Estrutura', color: '#FF2E3B', forWho: 'Para quem já começou e quer estrutura profissional.',
+        items: ['Criação de modelo com IA', 'Trabalho com modelo real', 'Prospecção de modelos', 'Montagem da operação', 'Tráfego orgânico', 'Mercado internacional', 'Monetização como chatter'],
+        url: '', cta: 'Entrar para a Elite' },
+      { tier: 'Nível 03', name: 'Criadora Black', tag: 'Avançado', color: '#E9C77B', forWho: 'A experiência mais completa do ecossistema.',
+        items: [], soon: 'Conteúdo em preparação.',
+        url: '', cta: 'Quero a Black' }
+    ]
   },
 
   footer: {
@@ -535,6 +557,28 @@ body.draft .v-card .ph:not(.loaded) .ph-label{top:14px;bottom:auto}
 .v-modal .lb-btn{position:absolute;top:16px;right:var(--pad)}
 
 /* ---------- PARCERIAS ---------- */
+/* ---------- CRIADORA ---------- */
+.criadora{border-top:1px solid var(--ln-l)}
+.cr-levels{list-style:none;margin:0;padding:0;display:grid;gap:clamp(12px,1.6vw,20px)}
+@media(min-width:960px){.cr-levels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cr-card{position:relative;display:flex;flex-direction:column;gap:18px;padding:clamp(24px,2.8vw,36px);border-radius:20px;background:var(--noite);color:var(--claro);overflow:hidden;isolation:isolate}
+.cr-card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--lc)}
+.cr-card::after{content:"";position:absolute;z-index:-1;width:70%;aspect-ratio:1;right:-25%;top:-35%;border-radius:50%;background:radial-gradient(closest-side,var(--lc),transparent);opacity:.16}
+.cr-tier{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--claro-2)}
+.cr-tier i{width:8px;height:8px;border-radius:50%;background:var(--lc);box-shadow:0 0 12px var(--lc)}
+.cr-name{font-family:var(--display);font-variation-settings:"wdth" 118;font-weight:780;letter-spacing:-.035em;line-height:1;font-size:clamp(1.9rem,3vw,2.6rem)}
+.cr-for{color:var(--claro);font-size:16px}
+.cr-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px;color:var(--claro-2)}
+.cr-list li{display:flex;gap:10px;align-items:flex-start}
+.cr-list li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--lc)}
+.cr-soon{color:var(--claro-3);font-size:15px}
+.cr-card .btn{margin-top:auto}
+.cr-card .btn-line{color:var(--claro)}
+.cr-card .btn-line:hover{background:var(--claro);color:var(--tinta)}
+.cr-card.black{background:linear-gradient(170deg,#241A10,#120C08 60%);box-shadow:0 0 0 1px rgba(233,199,123,.35) inset}
+.cr-foot{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:clamp(28px,3.4vw,44px)}
+.cr-note{font-size:13px;color:var(--tinta-3);max-width:52ch}
+@media(max-width:899px){.cr-foot .btn{width:100%}}
 .partner{display:grid;gap:clamp(48px,6vw,96px)}
 @media(min-width:1000px){.partner{grid-template-columns:minmax(0,1fr) minmax(0,34rem);align-items:start}}
 .formats{border-top:1px solid var(--ln-l);margin-top:clamp(32px,4vw,48px)}
@@ -644,7 +688,7 @@ body.draft .draft-bar button{border:0;background:var(--claro);color:var(--tinta)
   <div class="wrap">
     <a class="mark" href="#topo" aria-label="Juju Ferrari, voltar ao início"><svg aria-hidden="true" style="color:#E2BE78"><use href="#i-mark"/></svg><span>Juju Ferrari</span></a>
     <nav class="nav-links" aria-label="Seções">
-      <a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#videos">Vídeos</a><a href="#parcerias">Parcerias</a><a href="#imprensa">Imprensa</a>
+      <a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#videos">Vídeos</a><a href="#criadora">Criadora</a><a href="#parcerias">Parcerias</a><a href="#imprensa">Imprensa</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-line nav-cta" href="#canais">Canais oficiais</a>
@@ -659,7 +703,7 @@ body.draft .draft-bar button{border:0;background:var(--claro);color:var(--tinta)
     <button class="menu-close" type="button" id="menuClose" aria-label="Fechar menu"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
   </div>
   <nav aria-label="Menu principal">
-    <a href="#canais">Canais oficiais</a><a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#videos">Vídeos</a><a href="#parcerias">Parcerias</a><a href="#imprensa">Imprensa</a>
+    <a href="#canais">Canais oficiais</a><a href="#sobre">Sobre</a><a href="#galeria">Galeria</a><a href="#videos">Vídeos</a><a href="#criadora">Criadora</a><a href="#parcerias">Parcerias</a><a href="#imprensa">Imprensa</a>
   </nav>
 </div>
 
@@ -740,6 +784,21 @@ body.draft .draft-bar button{border:0;background:var(--claro);color:var(--tinta)
       <p class="intro-text">Bastidores, campanhas e o dia a dia, em movimento.</p>
     </div>
     <div class="videos" id="videoList"></div>
+  </div>
+</section>
+
+<!-- CRIADORA -->
+<section class="sec criadora" id="criadora" data-theme="light" aria-labelledby="criadora-t">
+  <div class="wrap">
+    <div class="sec-head split">
+      <h2 class="h-sec" id="criadora-t">Criadora</h2>
+      <p class="intro-text" id="crIntro"></p>
+    </div>
+    <ol class="cr-levels" id="crLevels"></ol>
+    <div class="cr-foot">
+      <a class="btn btn-ink" id="crContact" target="_blank" rel="noopener"></a>
+      <p class="cr-note" id="crNote"></p>
+    </div>
   </div>
 </section>
 
@@ -980,7 +1039,7 @@ $('#links').innerHTML = links.map(function(l, i){
     '<div class="link-main"><span class="link-name' + (l.featured ? ' gold-text' : '') + '">' + esc(l.name) + '</span>' +
     '<span class="link-desc">' + esc(l.text) + badges + '</span></div>' +
     (has ? '<span class="link-go" aria-hidden="true"><span class="go-txt">' + esc(l.cta || 'Acessar') + '</span>' + icon('arrow') + '</span>' : slot('Link do ' + l.name + ' (JUJU.links)')) +
-    (has ? '<a class="link-hit" href="' + esc(l.url) + '" target="_blank" rel="noopener"' + (l.adult ? ' data-adult="' + esc(l.name) + '"' : '') + ' data-track="' + esc(l.name) + '" aria-label="' + esc((l.cta || 'Acessar') + ' ' + l.name + ': ' + l.text + (l.adult ? ', conteúdo para maiores de 18 anos' : '')) + '"></a>' : '') +
+    (has ? '<a class="link-hit" href="' + esc(l.url) + '"' + (/^#/.test(l.url) ? '' : ' target="_blank" rel="noopener"') + (l.adult ? ' data-adult="' + esc(l.name) + '"' : '') + ' data-track="' + esc(l.name) + '" aria-label="' + esc((l.cta || 'Acessar') + ' ' + l.name + ': ' + l.text + (l.adult ? ', conteúdo para maiores de 18 anos' : '')) + '"></a>' : '') +
     coupon + '</li>';
 }).join('');
 
@@ -1136,6 +1195,24 @@ $('#videoList').addEventListener('click', function(e){
 function closeVideo(){ $('#vMount').innerHTML = ''; closeLayer(vm); }
 $('#vClose').addEventListener('click', closeVideo);
 vm.addEventListener('click', function(e){ if (e.target === vm) closeVideo(); });
+
+/* ---------- CRIADORA ---------- */
+var CR = C.criadora || {};
+if (filled(CR.levels)) {
+  $('#crIntro').textContent = CR.intro || '';
+  $('#crLevels').innerHTML = CR.levels.map(function(l, i){
+    var url = filled(l.url) ? l.url : CR.contactUrl;
+    var label = filled(l.url) ? (l.cta || 'Quero entrar') : 'Quero saber mais';
+    var list = filled(l.items) ? '<ul class="cr-list">' + l.items.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '<p class="cr-soon">' + esc(l.soon || '') + '</p>';
+    return '<li class="cr-card' + (i === CR.levels.length - 1 ? ' black' : '') + '" style="--lc:' + esc(l.color || '#E2BE78') + '">' +
+      '<span class="cr-tier"><i aria-hidden="true"></i>' + esc(l.tier) + ', ' + esc(l.tag) + '</span>' +
+      '<h3 class="cr-name">' + esc(l.name) + '</h3><p class="cr-for">' + esc(l.forWho) + '</p>' + list +
+      (filled(url) ? '<a class="btn ' + (i === 0 ? 'btn-gold' : 'btn-line') + '" href="' + esc(url) + '" target="_blank" rel="noopener" data-track="' + esc(l.name) + '" data-from="criadora">' + esc(label) + '</a>' : '') + '</li>';
+  }).join('');
+  var cc = $('#crContact');
+  if (filled(CR.contactUrl)) { cc.href = CR.contactUrl; cc.textContent = CR.contactLabel || 'Falar no direct'; cc.dataset.track = 'Direct Instagram'; cc.dataset.from = 'criadora'; } else cc.remove();
+  $('#crNote').textContent = CR.note || '';
+} else $('#criadora').hidden = true;
 
 /* ---------- PARCERIAS ---------- */
 var P = C.partnerships || {};
